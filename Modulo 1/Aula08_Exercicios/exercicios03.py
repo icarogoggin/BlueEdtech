@@ -16,8 +16,8 @@ respostas_sim = respostas.count('Sim')
 if (respostas_sim < 2):
     print("Inocente")
 elif (respostas_sim == 2):
-    print("Suspeita")
+    print("Suspeito")
 elif (3 <= respostas_sim <= 4):
     print("Cúmplice")
-elif (respostas_sim == 5):
+else:
     print("Assassino")
