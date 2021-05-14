@@ -1,6 +1,6 @@
 def fimc (peso, altura):
     imc = peso / altura**2
-    print("Seu IMC é: %.4f" % imc) 
+    print("Seu IMC é: %.2f" % imc) 
     if imc < 16:
         print("Magreza grave")
     elif imc < 17:
@@ -19,5 +19,5 @@ def fimc (peso, altura):
         print("Obesidade Grau III (mórbida)")
 
 altura = float(input("Digite sua altura em metros: "))
-peso = float(input("Digite seu peso em Kg: "))
-fimc (peso, altura) 
+peso = float((((input("Digite seu peso em Kg: ").replace(',','.')).lower()).replace('kg', '')).strip())
+fimc (peso, altura)
