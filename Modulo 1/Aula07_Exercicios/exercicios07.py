@@ -7,6 +7,7 @@ def custo_hotel(noites):
     diaria = 140
     custo_do_hotel = noites * diaria
     print ('O custo do hotel será de : R$',custo_do_hotel)
+    return custo_do_hotel
 #teste = int(input('Digite quantos dias você pretende ficar no hotel:  '))
 #custo_hotel(teste)
 '''2 - Crie uma função chamada 'custo_aviao' que receba o nome da cidade e retorne o custo da passagem de avião, sendo que passagem para:
@@ -32,6 +33,7 @@ def custo_aviao(cidade):
         print('O seu custo com a passagem de avião será de : R$',custoaviao)
     else:
         print('Você não digitou um destino válido! Tente novamente')
+    return custoaviao
 #teste = input('Digite o nome da cidade que você vai viajar: ')
 #custo_aviao(teste)
 '''3 - Crie uma função chamada 'custo_carro' que receba um parâmetro chamado 'dias'.
@@ -52,6 +54,7 @@ def custo_carro(dias):
     else:
         aluguel_carro = dias * 40
         print ('O custo com o aluguel do carro será de : R$',aluguel_carro)
+    return aluguel_carro
 
 # teste = int(input('Você pretende alugar o carro por quantos dias : '))
 # custo_carro(teste)
@@ -62,17 +65,28 @@ def custo_carro(dias):
 Gastos Extras'''
 
 def calcular_viagem(cidade, dias):
-    custo_aviao(cidade)
-    custo_hotel(dias)
-    custo_carro(dias)
-    #print('O gasto total com sua viagem será de: R$ ', custo_aviao + custo_hotel + custo_carro)
-
-cidade = input('Digite o nome da cidade que você vai viajar: ')
-dias = int(input('Você pretende ficar por quantos dias : '))
-calcular_viagem(cidade, dias)
+    aviao = custo_aviao(cidade)
+    hotel =custo_hotel(dias)
+    carro =custo_carro(dias)
+    total = aviao + hotel + carro
+    print(f'O custo total de sua viagem será de: R$',total)
 
 
+# cidade = input('Digite o nome da cidade que você vai viajar: ').capitalize()
+# dias = int(input('Você pretende ficar por quantos dias : '))
+# calcular_viagem(cidade, dias)
 
 
 '''5 - Modifique essa nova função criada e adicione um terceiro argumento: 'gastos_extras' e some esse valor ao total da viagem.
 Exiba no console o custo total de uma viagem de 12 dias para 'Manaus' gastando R$ 800,00 adicionais.'''
+def calcular_viagem_custo(cidade, dias):
+    print(f'Seus custos para viajar para a cidade de {cidade} durante {dias} dias, serão: \n')
+    custo_extra = 800 #float(input('Você planeja levar algum dinheiro para emergencias? digite a quantia! R$:'))
+    aviao = custo_aviao(cidade)
+    hotel =custo_hotel(dias)
+    carro =custo_carro(dias)
+    print(f'Seu custo extra será de: R${custo_extra}')
+    total = aviao + hotel + carro + custo_extra
+    print(f'O custo total de sua viagem será de: R$',total)
+
+calcular_viagem_custo("Manaus", 12)
